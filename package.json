@@ -1,0 +1,82 @@
+{
+  "name": "algorithms-practice",
+  "version": "1.0.0",
+  "description": "Java Script practice problems",
+  "scripts": {
+    "lint": "eslint src",
+    "lint-fix": "eslint src --fix"
+  },
+  "keywords": [
+    "javascript",
+    "algorithms"
+  ],
+  "author": "German Shteynardt",
+  "license": "ISC",
+  "repository": "https://github.com/GermanShtey/algorithms-practice",
+  "type": "module",
+  "devDependencies": {
+    "eslint": "8.13.0",
+    "eslint-plugin-import": "2.26.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "rules": {
+      "import/no-anonymous-default-export": "off",
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "arrow-parens": [
+        "error",
+        "as-needed"
+      ],
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ],
+      "array-bracket-spacing": [
+        "error",
+        "never"
+      ],
+      "quotes": [
+        "error",
+        "single"
+      ],
+      "jsx-quotes": [
+        "error",
+        "prefer-double"
+      ],
+      "no-multiple-empty-lines": [
+        "error",
+        {
+          "max": 1,
+          "maxEOF": 0
+        }
+      ],
+      "eol-last": [
+        "error",
+        "always"
+      ],
+      "max-len": [
+        "error",
+        {
+          "code": 120
+        }
+      ],
+      "no-unused-vars": [
+        "warn",
+        {
+          "ignoreRestSiblings": true
+        }
+      ],
+      "no-extra-boolean-cast": "off"
+    }
+  }
+}
