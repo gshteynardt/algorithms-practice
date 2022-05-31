@@ -1,26 +1,45 @@
-const arr = [0, 0, 0, 0, 0, 0, 0];
+const arr = [1, 0, 2, 3, 0, 4, 5, 0];
 
-const shiftElements = (arr, length, slot) => {
-  for (let i = length; i >= slot; i--) {
-    if (i + 1 > length) continue;
+// var duplicateZeros = (arr) => {
+//   let possibleZeros = 0;
+//   let length = arr.length - 1;
 
-    arr[i + 1] = arr[i];
-  }
+//   for(let left = 0; left <= length - possibleZeros; left++) {
+//     if (arr[left] === 0) {
+//       if(left === length - possibleZeros) {
+//         arr[length] = 0;
+//         length--;
+//         break;
+//       }
 
-  if (slot > length) return;
+//       possibleZeros++;
+//     }
+//   }
 
-  arr[slot] = 0;
-};
+//   const last = length - possibleZeros;
 
-const duplicateZeros = (arr) => {
+//   for(let i = last; i >= 0; i--) {
+//     if(arr[i] === 0) {
+//       arr[i + possibleZeros] = 0;
+//       possibleZeros--;
+//       arr[i + possibleZeros] = 0;
+//     } else {
+//       arr[i + possibleZeros] = arr[i];
+//     }
+//   }
+// };
+
+var duplicateZeros = (arr) => {
   const length = arr.length;
 
   for (let i = 0; i < length; i++) {
     if (arr[i] === 0) {
-      shiftElements(arr, length - 1, i + 1);
       i++;
+      arr.splice(i, 0, 0);
     }
   }
+
+  arr.splice(length + 1);
 };
 
 duplicateZeros(arr);
