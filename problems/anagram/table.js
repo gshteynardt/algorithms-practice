@@ -10,10 +10,6 @@ const rl = createInterface({
   input: process.stdin
 });
 
-const sorted = (str) => {
-  return str.split('').sort().join();
-};
-
 let a = undefined;
 let b = undefined;
 let isFirstLine = true;
