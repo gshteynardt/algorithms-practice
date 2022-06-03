@@ -1,4 +1,4 @@
-const N = 100;
+const N = 50_000_000;
 const MIN = -500_000;
 const MAX = 500_000;
 
