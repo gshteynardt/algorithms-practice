@@ -1,33 +1,5 @@
 const readline = require('readline');
 
-const isValid = (s) => {
-  if (!s.length) return true;
-  const stack = [];
-
-  for (let ch of s) {
-    if (ch === '(' || ch === '{' || ch === '[') {
-      stack.push(ch);
-    } else {
-      const topElement = stack.pop();
-
-      switch (ch) {
-        case ')':
-          if (topElement !== '(') return false;
-          break;
-        case '}':
-          if (topElement !== '{') return false;
-          break;
-        case ']':
-          if (topElement !== '[') return false;
-          break;
-        default: return false;
-      }
-    }
-  }
-
-  return stack.length === 0;
-};
-
 const rl = readline.createInterface({
   input: process.stdin
 });
@@ -38,23 +10,23 @@ rl.on('line', line => {
   N = Number(line);
 }).on('close', () => {
   const a = Array(N * 2).fill(null);
-  const generateParentheses = (a, index) => {
+
+  const generateParentheses = (open, close, index) => {
     if (index === a.length) {
-      const s = a.join('');
-
-      if (isValid(s)) {
-        console.log(s);
-      };
-
+      console.log(a.join(''));
       return;
     }
 
-    a[index] = '(';
-    generateParentheses(a, index + 1);
-    a[index] = ')';
-    generateParentheses(a, index + 1);
-    a[index] = null;
+    if(open < N) {
+      a[index] = '(';
+      generateParentheses(open + 1, close, index + 1);
+    }
+
+    if(close < open) {
+      a[index] = ')';
+      generateParentheses(open, close + 1, index + 1);
+    }
   };
 
-  generateParentheses(a, 0);
+  generateParentheses(0, 0, 0);
 });
