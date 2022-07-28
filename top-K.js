@@ -7,15 +7,10 @@ readFile('numbers.txt', 'utf8', function (err, data) {
   const arr = data.trim().split(' ').map(Number);
 
   const heap = new MinBinaryHeap(10);
-  let inserted = true;
 
-  for(let num of arr) {
-    if(inserted) {
-      inserted = heap.insert(num);
-    } else {
-      heap.extractMin(num);
-    }
+  for (let num of arr) {
+    heap.insert(num);
   }
 
-  console.log(heap.heap);
+  console.log(heap.getValues());
 });
