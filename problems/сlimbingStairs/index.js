@@ -29,14 +29,14 @@
 //     if (i > n) {
 //       return 0;
 //     }
-    
+
 //     if(i === n) {
 //       return 1;
 //     }
-    
+
 //     return climb(i + 1, n) + climb(i + 2, n);
 //   };
-  
+
 //   return climb(0, n);
 // };
 //Time Limit Exceeded
@@ -56,7 +56,7 @@
 //DP bottom-up
 var climbStairs = function(n) {
   if(n === 1) return n;
-  
+
   const dp = [];
   dp[1] = 1;
   dp[2] = 2;

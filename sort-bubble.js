@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 fs.readFile('numbers.txt', 'utf-8', (err, data) => {
-  if (err) consola.log(err);
+  if (err) console.log(err);
 
   const arr = data.trim().split(' ').map(Number);
   console.log(`count elements = ${arr.length}`);
