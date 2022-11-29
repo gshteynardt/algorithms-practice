@@ -1,16 +1,17 @@
 //inorder traversal - recursive solution
 const inorderTraversalRec = (root) => {
-  const result = [];
+  let result = [];
 
   const traversal = (node) => {
-    if(node === null) return;
+    if (node === null) return;
 
-    traversal(node.left);
-    result.push(node.val);
-    traversal(node.right);
-  };
+    traversal(root.left);
+    result.push(root.val);
+    traversal(root.right)
+  }
 
   traversal(root);
+
   return result;
 };
 
@@ -20,16 +21,16 @@ const inorderTraversalIter = (root) => {
   const result = [];
   let curr = root;
 
-  while(curr !== null || stack.length) {
-      while(curr !== null) {
-          stack.push(curr);
-          curr = curr.left;
-      }
-      
-      curr = stack.pop();
-      result.push(curr.val);
-      curr = curr.right;
+  while (curr !== null || stack.length > 0) {
+    while (curr !== null) {
+      stack.push(curr);
+      curr = curr.left;
+    }
+
+    curr = stack.pop();
+    result.push(curr.val);
+    curr = curr.right;
   }
-  
+
   return result;
 };
